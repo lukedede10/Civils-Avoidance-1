@@ -341,6 +341,34 @@ h1{
   color:#d1d5db;
   line-height:1.4;
 }
+  @media(max-width:900px){
+  .guide-row{
+    grid-template-columns:minmax(0, 1fr) 150px !important;
+  }
+
+  .guide-content,
+  .guide-docs{
+    min-width:0;
+  }
+
+  .guide-docs{
+    padding:20px 10px;
+  }
+
+  .guide-docs h4{
+    font-size:18px;
+    overflow-wrap:break-word;
+  }
+
+  .guide-docs a{
+    width:100%;
+    max-width:100%;
+    font-size:18px;
+    padding:12px 10px;
+    overflow-wrap:break-word;
+    word-break:break-word;
+  }
+}
 </style>
 </head>
 
