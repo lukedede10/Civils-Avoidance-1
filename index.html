@@ -314,6 +314,33 @@ h1{
   color:var(--white);
   font-weight:800;
 }
+  .bullet-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:10px;
+}
+
+.bullet{
+  background:#1a1a1a;
+  border:1px solid #2a2a2a;
+  border-left:4px solid var(--yellow);
+  border-radius:10px;
+  padding:10px 12px;
+}
+
+.bullet b{
+  display:block;
+  color:var(--yellow);
+  font-size:13px;
+  margin-bottom:4px;
+}
+
+.bullet span{
+  font-size:14px;
+  color:#d1d5db;
+  line-height:1.4;
+}
 </style>
 </head>
 
@@ -395,21 +422,44 @@ using the correct tools and capturing clear evidence before escalation.
 <div class="guide-row" id="dewalt">
 <div class="guide-content">
 <h3>Dewalt Desiliter</h3>
-<ul>
-  <li><strong>Why we use it:</strong> To clear blockages within ducts and attempt route recovery before raising civils.</li>
+<div class="bullet-grid">
 
-  <li><strong>When to use it:</strong> When a route is suspected blocked but still potentially recoverable without excavation.</li>
+  <div class="bullet">
+    <b>Why we use it</b>
+    <span>Clear blockages and attempt route recovery before civils.</span>
+  </div>
 
-  <li><strong>Before using:</strong> Confirm the route, check for safe access, and ensure no risk of damaging existing infrastructure.</li>
+  <div class="bullet">
+    <b>When to use it</b>
+    <span>When a route is suspected blocked but still recoverable.</span>
+  </div>
 
-  <li><strong>Attachments:</strong> Use the correct attachment depending on the blockage.</li>
+  <div class="bullet">
+    <b>Before using</b>
+    <span>Confirm route, safe access, and no risk to infrastructure.</span>
+  </div>
 
-  <li><strong>Technique:</strong> Apply steady pressure, do not force the tool — let the attachment do the work.</li>
+  <div class="bullet">
+    <b>Attachments</b>
+    <span>Use correct head (cutting, cleaning, flexible for bends).</span>
+  </div>
 
-  <li><strong>Evidence:</strong> Capture photos of entry point, tooling setup, and outcome (success or failure).</li>
+  <div class="bullet">
+    <b>Technique</b>
+    <span>Apply steady pressure — do not force the tool.</span>
+  </div>
 
-  <li><strong>Escalation:</strong> If unsuccessful, escalate with clear notes explaining what was attempted and where the blockage is suspected.</li>
-</ul>
+  <div class="bullet">
+    <b>Evidence</b>
+    <span>Photos of entry point, setup and outcome.</span>
+  </div>
+
+  <div class="bullet">
+    <b>Escalation</b>
+    <span>Explain what was attempted and suspected blockage location.</span>
+  </div>
+
+</div>
 </div>
 <div class="guide-docs">
 <h4>Documents</h4>
