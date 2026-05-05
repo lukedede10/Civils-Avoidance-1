@@ -1,504 +1,337 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Civils Avoidance Guide</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Civils Avoidance Guide</title>
 
-  <style>
-    :root{
-      --bg:#07121f;
-      --card:#ffffff;
-      --text:#0b1220;
-      --muted:#64748b;
-      --stroke:#d6dde8;
-      --o2:#005EB8;
-      --o2Dark:#004A93;
-      --red:#E4002B;
-      --redDark:#B80022;
-      --green:#0f9f6e;
-      --greenDark:#0b6b58;
-      --radius:24px;
-      --shadow-soft:0 10px 24px rgba(2,6,23,.10);
-      --max:1400px;
-    }
+<style>
+:root{
+  --bg:#050505;
+  --card:#111111;
+  --card2:#1a1a1a;
+  --text:#f5f5f5;
+  --muted:#9ca3af;
+  --stroke:#2a2a2a;
 
-    *{box-sizing:border-box}
+  --yellow:#DFFF00;
+  --yellowSoft:#F2FF66;
+}
 
-    html,body{
-      margin:0;
-      min-height:100%;
-      font-family:Arial,Helvetica,sans-serif;
-      background:linear-gradient(180deg,#06101b 0%,#0b1930 100%);
-      color:#fff;
-    }
+*{box-sizing:border-box}
 
-    main{padding:24px 0 36px}
+html,body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#000,#0a0a0a);
+  color:var(--text);
+}
 
-    .shell{
-      width:min(var(--max),calc(100% - 24px));
-      margin:0 auto;
-    }
+main{padding:24px 0 36px}
 
-    .card{
-      background:var(--card);
-      color:var(--text);
-      border-radius:28px;
-      box-shadow:var(--shadow-soft);
-      padding:18px;
-      border:1px solid #e8eef7;
-    }
+.shell{
+  width:min(1400px,calc(100% - 24px));
+  margin:0 auto;
+}
 
-    .intro-card{margin-bottom:18px}
+/* CARDS */
 
-    h1{
-      margin:0 0 10px;
-      font-size:clamp(30px,4vw,54px);
-      line-height:1.05;
-    }
+.card{
+  background:var(--card);
+  border-radius:24px;
+  padding:20px;
+  border:1px solid var(--stroke);
+}
 
-    h2,h3,h4{margin-top:0}
+h1{
+  margin:0 0 10px;
+  font-size:clamp(32px,4vw,54px);
+}
 
-    .sub{
-      margin:0;
-      color:#334155;
-      font-size:clamp(15px,2vw,18px);
-      line-height:1.45;
-      max-width:1200px;
-    }
+.sub{
+  color:var(--muted);
+  max-width:1000px;
+}
 
-    .quick-links{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-      margin-top:18px;
-    }
+/* BUTTONS */
 
-    .quick-link{
-      border:none;
-      border-radius:22px;
-      padding:16px 18px;
-      color:#fff;
-      text-align:left;
-      cursor:pointer;
-      transition:.18s ease;
-      min-height:84px;
-      box-shadow:0 8px 20px rgba(2,6,23,.12);
-    }
+.quick-links{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:18px;
+}
 
-    .quick-link:hover{transform:translateY(-2px)}
-    .quick-link b{display:block;font-size:15px;margin-bottom:6px}
-    .quick-link span{display:block;font-size:13px;line-height:1.35;opacity:.92}
+.quick-link{
+  background:var(--yellow);
+  color:#000;
+  border:none;
+  border-radius:18px;
+  padding:16px;
+  cursor:pointer;
+  font-weight:700;
+}
 
-    .blue{background:var(--o2)}
-    .red{background:var(--red)}
-    .blue-dark{background:var(--o2Dark)}
-    .green{background:var(--green)}
+.quick-link span{
+  display:block;
+  font-size:13px;
+  margin-top:4px;
+  font-weight:500;
+}
 
-    .top-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin-bottom:18px;
-    }
+/* TOP GRID */
 
-    .eyebrow{
-      display:inline-flex;
-      font-size:12px;
-      font-weight:700;
-      letter-spacing:.7px;
-      color:var(--o2);
-      text-transform:uppercase;
-      margin-bottom:10px;
-    }
+.top-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:18px;
+}
 
-    .check-list,.warn-list,.pill-list{
-      display:grid;
-      gap:10px;
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
+.check-list,.warn-list,.pill-list{
+  list-style:none;
+  padding:0;
+}
 
-    .check-list li,.warn-list li,.pill-list li{
-      border-radius:16px;
-      padding:12px 14px;
-      font-size:14px;
-      line-height:1.45;
-    }
+.check-list li,
+.warn-list li,
+.pill-list li{
+  background:var(--card2);
+  border:1px solid var(--stroke);
+  padding:12px;
+  border-radius:12px;
+  margin-bottom:10px;
+}
 
-    .check-list li{background:#f0fdf4;border:1px solid #bbf7d0}
-    .warn-list li{background:#fff7ed;border:1px solid #fed7aa}
-    .pill-list li{background:#eff6ff;border:1px solid #bfdbfe}
+.warn-list li{
+  border-left:4px solid var(--yellow);
+}
 
-    .section-title{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:10px;
-      margin:22px 0 14px;
-      color:#fff;
-    }
+/* SECTIONS */
 
-    .section-title h2{
-      margin:0;
-      font-size:clamp(22px,3vw,32px);
-    }
+.section-title{
+  margin:24px 0 12px;
+}
 
-    .section-title p{
-      margin:0;
-      color:#d7e3f3;
-      font-size:14px;
-    }
+.section-title h2{
+  margin:0;
+}
 
-    .guide-list{
-      display:grid;
-      gap:18px;
-    }
+/* GUIDE ROW */
 
-    .guide-row{
-      display:grid;
-      grid-template-columns:2fr .85fr;
-      gap:18px;
-      background:#fff;
-      color:var(--text);
-      border-radius:28px;
-      box-shadow:var(--shadow-soft);
-      border:1px solid #e8eef7;
-      overflow:hidden;
-    }
+.guide-row{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:18px;
+  margin-bottom:18px;
+  background:var(--card);
+  border-radius:24px;
+  border:1px solid var(--stroke);
+}
 
-    .guide-content{
-      padding:20px;
-    }
+.guide-content{
+  padding:20px;
+}
 
-    .guide-content h3{
-      margin:0 0 10px;
-      font-size:24px;
-    }
+.guide-content h3{
+  margin-top:0;
+}
 
-    .guide-content p{
-      margin:0 0 12px;
-      color:#475569;
-      font-size:15px;
-      line-height:1.55;
-    }
+.guide-docs{
+  padding:20px;
+  background:#0a0a0a;
+  border-left:1px solid var(--stroke);
+}
 
-    .guide-content ul{
-      margin:0;
-      padding-left:18px;
-      color:#334155;
-      font-size:14px;
-      line-height:1.55;
-    }
+.guide-docs a{
+  display:block;
+  background:var(--yellow);
+  color:#000;
+  text-decoration:none;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:10px;
+  font-weight:700;
+}
 
-    .guide-docs{
-      padding:20px;
-      background:#f8fbff;
-      border-left:1px solid var(--stroke);
-    }
+/* FOOTER */
 
-    .guide-docs h4{
-      margin:0 0 12px;
-      color:#0f3f7e;
-    }
+.footer-note{
+  margin-top:18px;
+  padding:16px;
+  background:#0a0a0a;
+  border:1px solid var(--stroke);
+  border-radius:16px;
+  color:var(--muted);
+}
 
-    .guide-docs a{
-      display:block;
-      text-decoration:none;
-      color:var(--o2);
-      font-weight:700;
-      background:white;
-      border:1px solid var(--stroke);
-      border-radius:12px;
-      padding:10px 12px;
-      margin-bottom:10px;
-      font-size:14px;
-    }
+.export-wrap{
+  margin-top:18px;
+  text-align:right;
+}
 
-    .guide-docs a:hover{
-      border-color:var(--o2);
-    }
+.export-btn{
+  background:var(--yellow);
+  border:none;
+  padding:12px 16px;
+  font-weight:800;
+  border-radius:12px;
+  cursor:pointer;
+}
 
-    .footer-note{
-      margin-top:18px;
-      padding:16px 18px;
-      border-radius:20px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      color:#e5eef9;
-      font-size:14px;
-      line-height:1.5;
-    }
+/* MOBILE */
 
-    .export-wrap{
-      margin-top:18px;
-      display:flex;
-      justify-content:flex-end;
-    }
+@media(max-width:900px){
+  .quick-links,
+  .top-grid,
+  .guide-row{
+    grid-template-columns:1fr;
+  }
 
-    .export-btn{
-      border:none;
-      background:white;
-      color:var(--o2);
-      font-weight:800;
-      padding:12px 16px;
-      border-radius:14px;
-      cursor:pointer;
-      box-shadow:0 8px 20px rgba(2,6,23,.16);
-    }
-
-    @media(max-width:1050px){
-      .quick-links,.top-grid,.guide-row{
-        grid-template-columns:1fr;
-      }
-
-      .guide-docs{
-        border-left:none;
-        border-top:1px solid var(--stroke);
-      }
-    }
-
-    @media(max-width:720px){
-      .shell{width:min(var(--max),calc(100% - 16px))}
-      .card,.guide-row{border-radius:22px}
-      h1{font-size:34px}
-      .section-title{
-        display:block;
-      }
-      .section-title p{
-        margin-top:6px;
-      }
-    }
-
-    @media print{
-      body{
-        background:white;
-        color:black;
-      }
-
-      main{padding:0}
-
-      .quick-links,.export-wrap,.footer-note{
-        display:none;
-      }
-
-      .card,.guide-row{
-        box-shadow:none;
-        page-break-inside:avoid;
-      }
-
-      .section-title{
-        color:black;
-      }
-
-      .guide-docs{
-        background:#fff;
-      }
-    }
-  </style>
+  .guide-docs{
+    border-left:none;
+    border-top:1px solid var(--stroke);
+  }
+}
+</style>
 </head>
 
 <body>
-  <main>
-    <div class="shell">
+<main>
+<div class="shell">
 
-      <section class="card intro-card">
-        <h1>Civils Avoidance Guide</h1>
-        <p class="sub">
-          A field-led guide to support technicians with avoiding unnecessary civils by completing the right checks, using the correct tools, capturing clear evidence and escalating with a strong rationale only when required.
-        </p>
+<!-- HEADER -->
+<section class="card">
+<h1>Civils Avoidance Guide</h1>
+<p class="sub">
+Field-led guidance to reduce unnecessary civils by completing the right checks,
+using the correct tools and capturing clear evidence before escalation.
+</p>
 
-        <div class="quick-links">
-          <button class="quick-link blue" onclick="goToSection('dewalt')">
-            <b>Dewalt Desiliter</b>
-            <span>Setup, use and evidence guidance.</span>
-          </button>
+<div class="quick-links">
+<button class="quick-link" onclick="goToSection('dewalt')">Dewalt Desiliter<span>Setup & use</span></button>
+<button class="quick-link" onclick="goToSection('ball')">Ball Tooling<span>Recovery tools</span></button>
+<button class="quick-link" onclick="goToSection('cur')">CUR / PA2<span>Build types</span></button>
+<button class="quick-link" onclick="goToSection('tips')">Hints & Tips<span>Quick wins</span></button>
+</div>
+</section>
 
-          <button class="quick-link red" onclick="goToSection('ball-tooling')">
-            <b>Ball Tooling</b>
-            <span>Tooling guidance before civils escalation.</span>
-          </button>
+<!-- RATIONALE -->
+<section class="top-grid">
+<div class="card">
+<h3>Strong Civils Rationale</h3>
+<ul class="check-list">
+<li>All recovery options attempted</li>
+<li>Clear identified blockage point</li>
+<li>Evidence captured (photos + notes)</li>
+<li>Correct tools used first</li>
+</ul>
+</div>
 
-          <button class="quick-link blue-dark" onclick="goToSection('cur-pa2')">
-            <b>CUR / PA2</b>
-            <span>Build type specific avoidance guidance.</span>
-          </button>
+<div class="card">
+<h3>Weak Civils Rationale</h3>
+<ul class="warn-list">
+<li>No recovery attempts made</li>
+<li>Poor notes ("blocked duct")</li>
+<li>No clear failure location</li>
+<li>Escalation without evidence</li>
+</ul>
+</div>
+</section>
 
-          <button class="quick-link green" onclick="goToSection('hints')">
-            <b>Generic Hints + Tips</b>
-            <span>Common saves, checks and reminders.</span>
-          </button>
-        </div>
-      </section>
+<!-- PRE CHECK -->
+<section class="top-grid">
+<div class="card">
+<h3>Pre-booking Checks</h3>
+<ul class="pill-list">
+<li>Confirm build type</li>
+<li>Check route & records</li>
+<li>Attempt recovery</li>
+<li>Capture evidence</li>
+</ul>
+</div>
 
-      <section class="top-grid">
-        <div class="card">
-          <div class="eyebrow">What good looks like</div>
-          <h3>Strong civils rationale</h3>
-          <ul class="check-list">
-            <li>All reasonable route recovery options have been attempted before escalation.</li>
-            <li>The technician can clearly explain where the blockage or restriction has been identified.</li>
-            <li>Evidence supports the need for civils, including photos, notes and test results where applicable.</li>
-            <li>The correct tools have been attempted before concluding civils is required.</li>
-            <li>The escalation clearly explains why the route is not recoverable using standard field activity.</li>
-          </ul>
-        </div>
+<div class="card">
+<h3>Why It Matters</h3>
+<ul class="pill-list">
+<li>Reduces cost</li>
+<li>Improves customer experience</li>
+<li>Faster resolutions</li>
+<li>Consistent decisions</li>
+</ul>
+</div>
+</section>
 
-        <div class="card">
-          <div class="eyebrow">What to avoid</div>
-          <h3>Weak civils rationale</h3>
-          <ul class="warn-list">
-            <li>Assuming civils is required without attempting recovery tools first.</li>
-            <li>Providing limited notes such as “blocked duct” without clear evidence.</li>
-            <li>Not narrowing down the location of the blockage.</li>
-            <li>Escalating without confirming what has already been attempted.</li>
-            <li>Raising civils as the first option rather than the last resort.</li>
-          </ul>
-        </div>
-      </section>
+<div class="section-title">
+<h2>Guidance Sections</h2>
+</div>
 
-      <section class="top-grid">
-        <div class="card">
-          <div class="eyebrow">Before booking civils</div>
-          <h3>Pre-booking checks</h3>
-          <ul class="pill-list">
-            <li>Confirm the correct build type and understand the expected route before progressing.</li>
-            <li>Check available network records, maps or previous notes where applicable.</li>
-            <li>Attempt all safe and approved route recovery options before escalation.</li>
-            <li>Capture clear evidence showing what has been attempted and where the issue appears to be.</li>
-            <li>Escalate with a clear explanation before civils is raised.</li>
-          </ul>
-        </div>
+<!-- DEWALT -->
+<div class="guide-row" id="dewalt">
+<div class="guide-content">
+<h3>Dewalt Desiliter</h3>
+<p>Use before civils to attempt route recovery.</p>
+</div>
+<div class="guide-docs">
+<h4>Documents</h4>
+<a href="#">Setup Guide</a>
+<a href="#">Usage Video</a>
+</div>
+</div>
 
-        <div class="card">
-          <div class="eyebrow">Why it matters</div>
-          <h3>Why civils avoidance matters</h3>
-          <ul class="pill-list">
-            <li>Reduces unnecessary cost and avoids avoidable follow-on work.</li>
-            <li>Improves customer experience by helping achieve resolution sooner.</li>
-            <li>Supports completion by using the right tools and checks before escalation.</li>
-            <li>Improves consistency across teams and regions.</li>
-            <li>Ensures civils is only raised when it is genuinely required.</li>
-          </ul>
-        </div>
-      </section>
+<!-- BALL -->
+<div class="guide-row" id="ball">
+<div class="guide-content">
+<h3>Ball Tooling</h3>
+<p>Use appropriate tooling before escalation.</p>
+</div>
+<div class="guide-docs">
+<h4>Documents</h4>
+<a href="#">Tooling Guide</a>
+</div>
+</div>
 
-      <div class="section-title">
-        <h2>Guidance sections</h2>
-        <p>Use the relevant section below based on the activity required.</p>
-      </div>
+<!-- CUR -->
+<div class="guide-row" id="cur">
+<div class="guide-content">
+<h3>CUR / PA2</h3>
+<p>Build-specific civils avoidance checks.</p>
+</div>
+<div class="guide-docs">
+<h4>Documents</h4>
+<a href="#">CUR Guide</a>
+<a href="#">PA2 Guide</a>
+</div>
+</div>
 
-      <section class="guide-list">
+<!-- TIPS -->
+<div class="guide-row" id="tips">
+<div class="guide-content">
+<h3>Hints & Tips</h3>
+<p>Common saves and reminders.</p>
+</div>
+<div class="guide-docs">
+<h4>Documents</h4>
+<a href="#">Best Practice</a>
+</div>
+</div>
 
-        <article class="guide-row" id="dewalt">
-          <div class="guide-content">
-            <h3>Dewalt Desiliter</h3>
-            <p>
-              Use this section for guidance on desiliter setup, safe use, when it should be attempted, and what evidence should be captured before civils is raised.
-            </p>
-            <ul>
-              <li>Confirm the tool is suitable for the route and blockage being worked on.</li>
-              <li>Follow the setup guidance before use.</li>
-              <li>Capture clear evidence of the attempt and outcome.</li>
-              <li>Escalate if the route remains non-recoverable after the correct checks have been completed.</li>
-            </ul>
-          </div>
+<div class="export-wrap">
+<button onclick="window.print()" class="export-btn">Export PDF</button>
+</div>
 
-          <div class="guide-docs">
-            <h4>Documents</h4>
-            <a href="#">Desiliter Setup</a>
-            <a href="#">Desiliter in Action</a>
-          </div>
-        </article>
+<div class="footer-note">
+Civils should only be raised once the route is confirmed non-recoverable.
+</div>
 
-        <article class="guide-row" id="ball-tooling">
-          <div class="guide-content">
-            <h3>Ball Tooling</h3>
-            <p>
-              Use this section for guidance on when ball tooling should be considered as part of civils avoidance activity.
-            </p>
-            <ul>
-              <li>Confirm the route type before attempting tooling.</li>
-              <li>Use the correct tooling for the scenario.</li>
-              <li>Do not progress if there is a safety concern or risk of damage.</li>
-              <li>Record the outcome clearly before escalating further.</li>
-            </ul>
-          </div>
+</div>
+</main>
 
-          <div class="guide-docs">
-            <h4>Documents</h4>
-            <a href="#">Ball Tooling Guide</a>
-            <a href="#">Tooling Examples</a>
-          </div>
-        </article>
+<script>
+function goToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+</script>
 
-        <article class="guide-row" id="cur-pa2">
-          <div class="guide-content">
-            <h3>CUR / PA2</h3>
-            <p>
-              Use this section for build type specific guidance where CUR or PA2 route recovery activity is being considered.
-            </p>
-            <ul>
-              <li>Confirm the build type before deciding the next action.</li>
-              <li>Check whether the route has been correctly interpreted.</li>
-              <li>Attempt approved recovery options before escalation.</li>
-              <li>Ensure notes explain why civils is required if recovery is unsuccessful.</li>
-            </ul>
-          </div>
-
-          <div class="guide-docs">
-            <h4>Documents</h4>
-            <a href="#">CUR Guidance</a>
-            <a href="#">PA2 Guidance</a>
-          </div>
-        </article>
-
-        <article class="guide-row" id="hints">
-          <div class="guide-content">
-            <h3>Generic Hints + Tips</h3>
-            <p>
-              Use this section for common reminders, quick checks and good practice before civils is raised.
-            </p>
-            <ul>
-              <li>Do not rely on short notes alone — explain what has been checked.</li>
-              <li>Photos should clearly show the issue, location and attempted recovery where possible.</li>
-              <li>Consider whether a temporary solution can support completion while the permanent fix progresses.</li>
-              <li>When unsure, escalate with evidence before booking civils.</li>
-            </ul>
-          </div>
-
-          <div class="guide-docs">
-            <h4>Documents</h4>
-            <a href="#">Hints + Tips Guide</a>
-            <a href="#">Evidence Examples</a>
-          </div>
-        </article>
-
-      </section>
-
-      <div class="export-wrap">
-        <button onclick="exportPDF()" class="export-btn">Export to PDF</button>
-      </div>
-
-      <div class="footer-note">
-        This guidance supports civils avoidance by encouraging the correct checks, tooling and evidence capture before civils is raised. Civils should only be progressed once the route has been confirmed as genuinely non-recoverable through standard field activity.
-      </div>
-
-    </div>
-  </main>
-
-  <script>
-    function goToSection(id){
-      const el = document.getElementById(id);
-      if(el){
-        el.scrollIntoView({behavior:'smooth', block:'start'});
-      }
-    }
-
-    function exportPDF(){
-      window.print();
-    }
-  </script>
 </body>
 </html>
