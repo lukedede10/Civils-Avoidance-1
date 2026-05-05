@@ -341,9 +341,9 @@ h1{
   color:#d1d5db;
   line-height:1.4;
 }
-  @media(max-width:900px){
+ @media(max-width:900px){
   .guide-row{
-    grid-template-columns:minmax(0, 1fr) 150px !important;
+    grid-template-columns:minmax(0, 1fr) 125px !important;
   }
 
   .guide-content,
@@ -352,21 +352,34 @@ h1{
   }
 
   .guide-docs{
-    padding:20px 10px;
+    padding:18px 8px;
   }
 
   .guide-docs h4{
-    font-size:18px;
-    overflow-wrap:break-word;
+    font-size:17px;
   }
 
   .guide-docs a{
     width:100%;
     max-width:100%;
-    font-size:18px;
-    padding:12px 10px;
+    font-size:16px;
+    padding:10px 8px;
     overflow-wrap:break-word;
     word-break:break-word;
+  }
+
+  .bullet-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .bullet{
+    min-width:0;
+  }
+
+  .bullet b,
+  .bullet span{
+    overflow-wrap:break-word;
+    word-break:normal;
   }
 }
 </style>
